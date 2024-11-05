@@ -4,11 +4,8 @@ import matplotlib.animation as animation
 num_creatures = 10
 num_food_sources = 10
 mutation_rate = 0.01
-<<<<<<< HEAD:geneticalgomod.py
 max_generations = 5000
-=======
 max_generations = 100
->>>>>>> 370196075217d8f629e695172002ee34164cd8f1:geneticalgo.py
 steps_per_gen = 50
 initial_learning_rate = 0.01  
 learning_rate_increase = 0.005  
