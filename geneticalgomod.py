@@ -4,8 +4,8 @@ import matplotlib.animation as animation
 num_creatures = 10
 num_food_sources = 10
 mutation_rate = 0.01
-max_generations = 100
-steps_per_gen = 5
+max_generations = 5000
+steps_per_gen = 50
 initial_learning_rate = 0.01  
 learning_rate_increase = 0.005  
 creatures = np.random.rand(num_creatures, 2) * 100
@@ -47,7 +47,8 @@ def update(frame):
     
     if frame >= max_generations:
         print("Maximum generations reached. Stopping execution.")
-        plt.close(fig) 
+        out = input("Press any key to exit")
+        plt.close(fig)
         return  
 
     learning_rate = min(initial_learning_rate + (frame // steps_per_gen) * learning_rate_increase, 1.0)
@@ -74,7 +75,7 @@ def update(frame):
     ax1.scatter(food_sources[:, 0], food_sources[:, 1], s=50, c='red')
     ax1.set_xlim(0, 100)
     ax1.set_ylim(0, 100)
-    ax1.set_title(f"Generation: {frame + 1}")
+    ax1.set_title(f"Generation: {frame // steps_per_gen + 1}")
 
     
     if frame % steps_per_gen == steps_per_gen - 1:
@@ -110,6 +111,6 @@ def update(frame):
     if best_fitness_values:
         ax2.set_ylim(0, max(best_fitness_values) * 1.1)  
 
-ani = animation.FuncAnimation(fig, update, frames=max_generations, interval=100)
+ani = animation.FuncAnimation(fig, update, frames=max_generations * steps_per_gen, interval=10)
 
 plt.show()
