@@ -5,7 +5,6 @@ num_creatures = 10
 num_food_sources = 10
 mutation_rate = 0.01
 max_generations = 5000
-max_generations = 100
 steps_per_gen = 50
 initial_learning_rate = 0.01  
 learning_rate_increase = 0.005  
